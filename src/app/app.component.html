@@ -1,0 +1,15 @@
+<table style="width: 100%; border: 1px solid black;">
+  <tr>
+    <th>comprado</th>
+    <th>producto</th>
+    <th>descuento</th>
+  </tr>
+  <tr *ngFor="let compra of compras; index as i;">
+    <td>
+      <input type="radio" name="comprado-{{i}}" [(ngModel)]="compra.comprado" [value]=true> Si
+      <input type="radio" name="comprado-{{i}}" [(ngModel)]="compra.comprado" [value]=false> No
+    </td>
+    <td>{{compra.comprar}}</td>
+    <td>{{compra.descuento}}</td>
+  </tr>
+</table>
