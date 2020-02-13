@@ -17,17 +17,17 @@ export class ListaProductosComponent implements OnInit {
     };
     const producto2 = {
       comprar:"huevos",
-      descuento:"10",
+      descuento:"15",
       comprado: false,
     };
     const producto3 = {
       comprar:"pasta",
-      descuento:"10",
+      descuento:"20",
       comprado: false,
     };
     const producto4 = {
       comprar:"galletas",
-      descuento:"10",
+      descuento:"25",
       comprado: false,
     };
     this.compras = [];

@@ -13,3 +13,25 @@
     <td>{{compra.descuento}}</td>
   </tr>
 </table>
+
+<h2>Comprados</h2>
+<li *ngFor="let compra of compras; index as i;">
+  <h3 *ngIf="compras[i].comprado">{{compra.comprar}}</h3>
+</li>
+
+
+<h2>Estado de compra de pan:</h2>
+<h3 *ngIf="compras[0].comprado">Si</h3>
+<h3 *ngIf="!compras[0].comprado">No</h3>
+
+<h2>Estado de compra de huevos:</h2>
+<h3 *ngIf="compras[1].comprado">Si</h3>
+<h3 *ngIf="!compras[1].comprado">No</h3>
+
+<h2>Estado de compra de pasta:</h2>
+<h3 *ngIf="compras[2].comprado">Si</h3>
+<h3 *ngIf="!compras[2].comprado">No</h3>
+
+<h2>Estado de compra de galletas:</h2>
+<h3 *ngIf="compras[3].comprado">Si</h3>
+<h3 *ngIf="!compras[3].comprado">No</h3>
