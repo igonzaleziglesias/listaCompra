@@ -11,33 +11,42 @@ export class ListaProductosComponent implements OnInit {
 
   constructor() {
     const producto1 = {
-      comprar:"pan",
-      descuento:"10",
-      comprado: false,
+      comprar: 'pan',
+      comprado: true,
     };
     const producto2 = {
-      comprar:"huevos",
-      descuento:"15",
+      comprar: 'huevos',
       comprado: false,
     };
     const producto3 = {
-      comprar:"pasta",
-      descuento:"20",
+      comprar: 'pasta',
       comprado: false,
     };
     const producto4 = {
-      comprar:"galletas",
-      descuento:"25",
+      comprar: 'galletas',
+      comprado: true,
+    };
+    const producto5 = {
+      comprar: 'pescado',
       comprado: false,
+    };
+    const producto6 = {
+      comprar: 'carne',
+      comprado: true,
     };
     this.compras = [];
     this.compras.push(producto1);
     this.compras.push(producto2);
     this.compras.push(producto3);
     this.compras.push(producto4);
+    this.compras.push(producto5);
+    this.compras.push(producto6);
   }
 
   ngOnInit() {
   }
 
+  cambio(compra) {
+    compra.comprado = !compra.comprado;
+  }
 }
