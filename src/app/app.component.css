@@ -1,7 +1,9 @@
-button.estado{
-  color:green;
+
+#comprado {
+  background-color: green;
 }
 
-button.estadoNo{
-  color:red;
+
+#compradoNo {
+  background-color: red;
 }

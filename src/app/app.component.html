@@ -1,10 +1,10 @@
-<table style="width: 100%; border: 1px solid black;">
+<!--<table style="width: 100%; border: 1px solid black;">
   <tr>
     <th>comprado</th>
   </tr>
 
-  <tr  *ngFor="let compra of compras; index as i">
-     <td  *ngIf="compras[i].comprado" align="center"><button class="estado" (click)="cambio(compra)"> {{compra.comprar}}</button> </td>
+  <tr  *ngFor="let compra of productos; index as i">
+     <td  *ngIf="productos[i].comprado" align="center"><button class="estado" (click)="cambio(compra)"> {{compra.nombre}}</button> </td>
   <td></td>
   </tr>
 </table>
@@ -14,7 +14,46 @@
   <tr>
      <th>No comprado</th>
   </tr>
-  <tr *ngFor="let compra of compras; index as i">
-    <td *ngIf="!compras[i].comprado" align="center"><button class="estadoNo"(click)="cambio(compra)"> {{compra.comprar}}</button> </td>
+  <tr *ngFor="let compra of productos; index as i">
+    <td *ngIf="!productos[i].comprado" align="center"><button class="estadoNo"(click)="cambio(compra)"> {{compra.nombre}}</button> </td>
+  </tr>
+</table>-->
+
+
+
+
+
+
+
+<table style="width: 100%; border: 1px solid black;">
+  <tr>
+    <th align="center">comprado</th>
+  </tr>
+
+</table>
+
+  <table>
+    <tr>
+  <td  *ngFor="let compra of productos; index as i">
+    <img src="{{compra.img}}" id="comprado" *ngIf="compra.comprado" (click)="cambio(compra)">
+  </td>
   </tr>
 </table>
+
+
+<table style="width: 100%; border: 1px solid black;">
+  <tr>
+    <th >No comprado</th>
+  </tr>
+</table>
+<table>
+  <tr>
+    <td *ngFor="let compra of productos; index as i">
+    <img src="{{compra.img}}" id="compradoNo" *ngIf="!compra.comprado" (click)="cambio(compra)">
+    </td>
+  </tr>
+</table>
+
+
+
+
