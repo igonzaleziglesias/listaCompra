@@ -1,55 +1,60 @@
-<!--<table style="width: 100%; border: 1px solid black;">
+<div class="loginDiv" *ngIf="( authComponent.user | async) as user; else login">{{user.email}} - {{user.displayName}} - {{user.uid}}
+  <br/><br/>
+  <button class="btn btn-secondary" (click)="authComponent.logout()">LOGOUT</button>
+  <br/><br/>
+  <br/><br/>
+  <button class="btn btn-success" (click)="dbApp.altausuario(user.email,user.uid)" (click)="cargarpredeterminados(user.email,user.uid)" ><i class="fas fa-check"></i>ALTA</button>
+  <button class="btn btn-danger" (click)="dbApp.bajausuario(user.uid)"><i class="far fa-trash-alt"></i>BAJA</button>
+  <br/><br/>
+</div>
+
+<ng-template #login>
+  <div class="loginDiv">
+  <!--  <br/><br/>
+    <button class="btn btn-primary" (click)="authComponent.login()">
+      <i class="far fa-envelope"></i>
+      Email Login</button>-->
+    <br/><br/>
+    <button class="btn btn-primary" (click)="authComponent.githublogin()" >
+      <i class="fab fa-github"></i>
+      GitHub Login</button>
+    <br/><br/>
+    <button class="btn btn-danger" (click)="authComponent.glogin()">
+      <i class="fab fa-google"></i>
+      Google Login
+    </button>
+  </div>
+</ng-template>
+
+
+
+
+
+<table *ngIf="( authComponent.user | async) as user;" style="width: 100%; border: 1px solid black;">
   <tr>
     <th>comprado</th>
   </tr>
 
-  <tr  *ngFor="let compra of productos; index as i">
-     <td  *ngIf="productos[i].comprado" align="center"><button class="estado" (click)="cambio(compra)"> {{compra.nombre}}</button> </td>
-  <td></td>
-  </tr>
 </table>
 
-
-<table style="width: 100%; border: 1px solid black;">
-  <tr>
-     <th>No comprado</th>
-  </tr>
-  <tr *ngFor="let compra of productos; index as i">
-    <td *ngIf="!productos[i].comprado" align="center"><button class="estadoNo"(click)="cambio(compra)"> {{compra.nombre}}</button> </td>
-  </tr>
-</table>-->
-
-
-
-
-
-
-
-<table style="width: 100%; border: 1px solid black;">
-  <tr>
-    <th align="center">comprado</th>
-  </tr>
-
-</table>
-
-  <table>
+  <table *ngIf="( authComponent.user | async) as user;">
     <tr>
   <td  *ngFor="let compra of productos; index as i">
-    <img src="{{compra.img}}" id="comprado" *ngIf="compra.comprado" (click)="cambio(compra)">
+    <img src="{{compra.img}}" id="comprado" *ngIf="compra.comprado" (click)="cambio(compra)" (click)="comprar(user.email,user.uid,i)">
   </td>
   </tr>
 </table>
 
 
-<table style="width: 100%; border: 1px solid black;">
+<table *ngIf="( authComponent.user | async) as user;" style="width: 100%; border: 1px solid black;">
   <tr>
-    <th >No comprado</th>
+    <th>No comprado</th>
   </tr>
 </table>
-<table>
+<table *ngIf="( authComponent.user | async) as user;">
   <tr>
     <td *ngFor="let compra of productos; index as i">
-    <img src="{{compra.img}}" id="compradoNo" *ngIf="!compra.comprado" (click)="cambio(compra)">
+    <img src="{{compra.img}}" id="compradoNo" *ngIf="!compra.comprado" (click)="cambio(compra)" (click)="comprar(user.email,user.uid,i)">
     </td>
   </tr>
 </table>
